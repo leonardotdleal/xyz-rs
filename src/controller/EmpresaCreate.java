@@ -1,4 +1,6 @@
 package controller;
+import java.util.ArrayList;
+
 import javax.swing.JOptionPane;
 
 import model.Empresa;
@@ -22,7 +24,7 @@ public class EmpresaCreate extends javax.swing.JFrame {
         } else {
             rotuloTitulo.setText("Alterar Empresa");
             botaoAcao.setText("Consultar");
-            alterarEdicaoCampos( false );
+            alterarEdicaoCampos( true );
         }
     }
 
@@ -153,7 +155,7 @@ public class EmpresaCreate extends javax.swing.JFrame {
         if( ehCadastro ){
             tratarCadastro();
         } else{ //é alteração
-            //tratarAlteracao();
+            tratarAlteracao();
         }
     }//GEN-LAST:event_botaoAcaoActionPerformed
 
@@ -186,32 +188,21 @@ public class EmpresaCreate extends javax.swing.JFrame {
     
     
     
-    /*private void tratarAlteracao(){
-        if( textFieldCod.isEnabled() ){
-            int codigo;
-            try{
-                codigo = Integer.parseInt( textFieldCod.getText() );
-            } catch ( NumberFormatException ex ){
-                showErroPreenchimento();
-                return;
-            }
-
-            Empresa empresa = Main.getBD().getEmpresa( codigo );
-            if( empresa==null ){
-                JOptionPane.showMessageDialog(this, "Nenhum empresa foi encontrado com este código!", "Resultado", JOptionPane.INFORMATION_MESSAGE);
-            }
-            else{
-                textFieldCod.setText( ""+empresa.codp );
-                textFieldRazaoSocial.setText( empresa.nome );
-                textFieldCPF.setText( empresa.cpf );
-                textFieldIdade.setText( ""+empresa.idade );
-                textFieldCidade.setText( empresa.cidade );
-                alterarEdicaoCampos( true );
-                textFieldCod.setEnabled( false );
-                botaoAcao.setText("Alterar");
+    private void tratarAlteracao(){
+        if( textFieldRazaoSocial.isEnabled() ){
+        	 EmpresaDAO dao = new EmpresaDAO();
+        	 ArrayList<Empresa> empresas = dao.getEmpresaPorRazaoSocial(textFieldRazaoSocial.getText());
+             
+            if( empresas == null ){
+                JOptionPane.showMessageDialog(this, "Nenhum empresa foi encontrado com nome!", "Resultado", JOptionPane.INFORMATION_MESSAGE);
+            } else {
+            	for( Empresa e : empresas ){
+                    textFieldRazaoSocial.setText( e.getRazaoSocial() );
+                    botaoAcao.setText("Alterar");
+                }
             }
         }
-
+/*
         else{ // realizar alteração na tabela
             if( verificarErros() ){
                 showErroPreenchimento();
@@ -243,12 +234,8 @@ public class EmpresaCreate extends javax.swing.JFrame {
                 Main.showMainWindow();
                 this.dispose();
             }
-        }
-    }*/
-    
-    
-    
-    
+        }*/
+    }
     
     private boolean verificarErros(){
         if( textFieldRazaoSocial.getText().length()<=3 ){
@@ -258,30 +245,21 @@ public class EmpresaCreate extends javax.swing.JFrame {
         return false;
     }
     
-    
-    
     private void showErroPreenchimento(){
         JOptionPane.showMessageDialog(this, "Verifique o preenchimento dos dados!", "Erro", JOptionPane.ERROR_MESSAGE);
     }
+    
     private void showErroBD(){
         JOptionPane.showMessageDialog(this, "Ocorreu algum erro ao registrar dados no BD!", "Erro", JOptionPane.ERROR_MESSAGE);
     }
-    
-    
-    
     
     private void limpaCampos(){
         textFieldRazaoSocial.setText("");
     }
     
-    
-    
     private void alterarEdicaoCampos(boolean opcao){
         textFieldRazaoSocial.setEnabled( opcao );
     }
-    
-    
-    
     
     private void botaoCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCancelarActionPerformed
         int acao = JOptionPane.showConfirmDialog(this, "Você tem certeza que deseja voltar?\n"

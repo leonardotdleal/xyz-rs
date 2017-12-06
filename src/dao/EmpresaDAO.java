@@ -117,5 +117,35 @@ public class EmpresaDAO extends GenericDAO {
         }
         return true;
     }
+	
+	public ArrayList<Empresa> getEmpresaPorRazaoSocial(String razaoSoc) {
+		if(!Main.getBD().getConnection())
+			return null;
+		
+		ArrayList<Empresa> resultado = new ArrayList();
+		
+        try{
+        	Statement st = Connect.c.createStatement();
+            String sql = "SELECT * FROM empresa WHERE razao_social LIKE '%" + razaoSoc + "%'";
+            ResultSet rs = st.executeQuery( sql );
+            
+            while ( rs.next() ) {
+                int idEmpresa = rs.getInt("id");
+                String razaoSocial = rs.getString("razao_social");
+                
+                resultado.add(new Empresa(idEmpresa, razaoSocial));
+            }
+            
+            rs.close();
+            st.close();
+            Connect.c.close();
+        } catch ( Exception e ) {
+            System.err.println( "ERRO DURANTE CONSULTA: getEmpresa");
+            System.err.println( e.getClass().getName()+": "+ e.getMessage() );
+            e.printStackTrace();
+        }
+        
+        return resultado;
+	}
 
 }

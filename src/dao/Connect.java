@@ -13,8 +13,8 @@ public class Connect {
     private boolean conectar(){
         try {
             //Class.forName("org.postgresql.Driver");
-            c = DriverManager.getConnection("jdbc:postgresql://localhost:5000/xyz_rs",
-                                            "postgres", "admin");
+            c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/xyz_rs",
+                                            "postgres", "udesc");
         } catch (Exception e) {
             e.printStackTrace();
             System.err.println(e.getClass().getName()+": "+e.getMessage());

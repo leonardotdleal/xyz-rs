@@ -207,6 +207,8 @@ public class CandidatoCreate extends javax.swing.JFrame {
         									textFieldDataNascimento.getText(),
         									Float.parseFloat((textFieldPresensaoSalarial.getText())));
         
+        System.out.println(candidato.getCpf());
+        
         CandidatoDAO dao = new CandidatoDAO();
         boolean resultado = dao.cadastrarCandidato(candidato);
         

@@ -115,7 +115,7 @@ public class EmpresaView extends javax.swing.JFrame {
             modelo.removeRow( 0 );
 
         for( Empresa e : empresas ){
-            modelo.addRow( new Object[]{e.getId(), e.getRazaoSocial()} );
+        	modelo.addRow( new Object[]{e.getId(), e.getRazaoSocial()} );
         }
 	}
 

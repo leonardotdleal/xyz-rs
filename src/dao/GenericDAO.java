@@ -11,6 +11,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import model.Empresa;
+import app.Main;
+
 public abstract class GenericDAO<T> {
 	
 	public long count() {
@@ -18,21 +21,27 @@ public abstract class GenericDAO<T> {
 		return 0;
 	}
 	
-	public T findById(Long id) {
-		System.out.println("findById " + id);
+	public T findById(int id) {
 		
+		if(!Main.getBD().getConnection())
+			return null;
+		
+		T result = null;
 		try {
 			Statement st = Connect.c.createStatement();
-			ResultSet rs = st.executeQuery("SELECT * FROM empresa WHERE id=" + id);
-			
-			T ret = this.transformRS(rs);
-			
-			return ret;
+            String sql = "SELECT * FROM empresa WHERE id = " + id;
+            ResultSet rs = st.executeQuery( sql );
+            
+            T ret = this.transformRS(rs);
+            
+            rs.close();
+            st.close();
+            Connect.c.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return null;
+		return result;
 	}
 	
 	public T transformRS(ResultSet rs) {

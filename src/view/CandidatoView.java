@@ -1,18 +1,18 @@
-package controller;
+package view;
 
 import java.util.ArrayList;
 
 import javax.swing.table.DefaultTableModel;
 
-import model.Empresa;
+import model.Candidato;
 import app.Main;
-import dao.EmpresaDAO;
+import dao.CandidatoDAO;
 
-public class EmpresaView extends javax.swing.JFrame {
+public class CandidatoView extends javax.swing.JFrame {
 
-	    public EmpresaView() {
+	    public CandidatoView() {
 	        initComponents();
-	        carregarEmpresas();
+	        carregarCandidatos();
 	    }
 
 	    @SuppressWarnings("unchecked")
@@ -34,14 +34,14 @@ public class EmpresaView extends javax.swing.JFrame {
 
 	        jLabel2.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
 	        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-	        jLabel2.setText("Visualizar Empresas");
+	        jLabel2.setText("Visualizar Candidatos");
 
 	        tabela.setModel(new javax.swing.table.DefaultTableModel(
 	            new Object [][] {
 	                null
 	            },
 	            new String [] {
-	                "id", "razao social"
+	                "id", "cpf", "nome", "data_nascimento", "pretensao_salarial"
 	            }
 	        ));
 	        jScrollPane1.setViewportView(tabela);
@@ -106,16 +106,16 @@ public class EmpresaView extends javax.swing.JFrame {
 	    private javax.swing.JTable tabela;
 	    // End of variables declaration//GEN-END:variables
 	
-	public void carregarEmpresas() {
-		EmpresaDAO dao = new EmpresaDAO();
-        ArrayList<Empresa> empresas = dao.getAllEmpresa();
+	public void carregarCandidatos() {
+		CandidatoDAO dao = new CandidatoDAO();
+        ArrayList<Candidato> candidatos = dao.getAllCandidatos();
         
         DefaultTableModel modelo = (DefaultTableModel) tabela.getModel();
         while( modelo.getRowCount() > 0 )
             modelo.removeRow( 0 );
 
-        for( Empresa e : empresas ){
-        	modelo.addRow( new Object[]{e.getId(), e.getRazaoSocial()} );
+        for( Candidato e : candidatos ){
+        	modelo.addRow( new Object[]{e.getId(), e.getCpf(), e.getNome(), e.getDataNascimento(), e.getPretensaoSalarial(), } );
         }
 	}
 

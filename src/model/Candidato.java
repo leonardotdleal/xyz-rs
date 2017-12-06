@@ -1,20 +1,24 @@
 package model;
 
+
 public class Candidato extends Pessoa {
 	
-	private float pretensaoSalariao;
+	private float pretensaoSalarial;
 	
-	public Candidato(float pretensaoSalariao) {
-		super();
-		this.pretensaoSalariao = pretensaoSalariao;
+	public Candidato() {
+	}
+	
+	public Candidato(String cpf, String nome, String dataNascimento, float pretensaoSalariao) {
+		super(cpf, nome, dataNascimento);
+		this.pretensaoSalarial = pretensaoSalariao;
 	}
 
-	public float getPretensaoSalariao() {
-		return pretensaoSalariao;
+	public float getPretensaoSalarial() {
+		return pretensaoSalarial;
 	}
 
-	public void setPretensaoSalariao(float pretensaoSalariao) {
-		this.pretensaoSalariao = pretensaoSalariao;
+	public void setPretensaoSalarial(float pretensaoSalariao) {
+		this.pretensaoSalarial = pretensaoSalariao;
 	}
 
 }

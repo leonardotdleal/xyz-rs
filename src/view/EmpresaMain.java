@@ -1,16 +1,14 @@
-package app;
+package view;
 
-import view.CandidatoMain;
-import view.EmpresaCreate;
-import view.EmpresaMain;
-import view.EmpresaView;
+import app.Main;
 
-public class MainWindow extends javax.swing.JFrame {
+
+public class EmpresaMain extends javax.swing.JFrame {
 
     /**
      * Creates new form MainWindow
      */
-    public MainWindow() {
+    public EmpresaMain() {
         initComponents();
     }
 
@@ -23,51 +21,49 @@ public class MainWindow extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        buttonEmpresas = new javax.swing.JButton();
-        buttonCandidatos = new javax.swing.JButton();
-        /*jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();*/
+        title = new javax.swing.JLabel();
+        buttonVisualizar = new javax.swing.JButton();
+        buttonCadastrar = new javax.swing.JButton();
+        buttonPesquisar = new javax.swing.JButton();
         buttonSair = new javax.swing.JButton();
+        buttonVoltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Menu Principal");
         setResizable(false);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Empresa XYZ");
+        title.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        title.setText("Empresa XYZ");
 
-        buttonEmpresas.setText("Empresas");
-        buttonEmpresas.addActionListener(new java.awt.event.ActionListener() {
+        buttonVisualizar.setText("Visualizar Empresas");
+        buttonVisualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                //buttonEmpresasActionPerformed(evt);
-            	new EmpresaMain().setVisible( true );
-                setVisible( false );
+                buttonVisualizarActionPerformed(evt);
             }
         });
 
-        buttonCandidatos.setText("Candidatos");
-        buttonCandidatos.addActionListener(new java.awt.event.ActionListener() {
+        buttonCadastrar.setText("Cadastrar Empresa");
+        buttonCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                //buttonCandidatosActionPerformed(evt);
-            	new CandidatoMain().setVisible( true );
-                setVisible( false );
-            }
-        });
-/*
-        jButton3.setText("Pesquisar Empresa");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                buttonCadastrarActionPerformed(evt);
             }
         });
 
-        jButton4.setText("Visualizar Consultas");
+        buttonPesquisar.setText("Pesquisar Empresa");
+        buttonPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonPesquisarActionPerformed(evt);
+            }
+        });
+        
+        buttonVoltar.setText("Voltar");
+        buttonVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonVoltarActionPerformed(evt);
+            }
+        });
 
-        jButton5.setText("Agendar Consulta");
-*/
         buttonSair.setBackground(new java.awt.Color(204, 255, 204));
         buttonSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icon-sair-mini.png"))); // NOI18N
         buttonSair.setText("Sair");
@@ -85,38 +81,34 @@ public class MainWindow extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(title, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(129, 129, 129)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(buttonCandidatos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            //.addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            //.addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(buttonEmpresas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            //.addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(buttonCadastrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(buttonPesquisar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(buttonVisualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(0, 118, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+	                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(buttonSair)))
+                        .addComponent(buttonVoltar)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addComponent(title)
                 .addGap(18, 18, 18)
-                .addComponent(buttonEmpresas)
+                .addComponent(buttonVisualizar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(buttonCandidatos)
+                .addComponent(buttonCadastrar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                /*.addComponent(jButton3)
+                .addComponent(buttonPesquisar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton5)
-                .addGap(18, 18, 18)*/
-                .addComponent(buttonSair)
+                .addComponent(buttonVoltar)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -127,33 +119,39 @@ public class MainWindow extends javax.swing.JFrame {
         System.exit( 0 );
     }//GEN-LAST:event_buttonSairActionPerformed
 
-    private void buttonEmpresasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEmpresasActionPerformed
+    private void buttonVisualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonVisualizarActionPerformed
         //new VisualizarPacientes().setVisible( true );
     	new EmpresaView().setVisible( true );
         this.setVisible( false );
-    }//GEN-LAST:event_buttonEmpresasActionPerformed
+    }//GEN-LAST:event_buttonVisualizarActionPerformed
 
-    private void buttonCandidatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCandidatosActionPerformed
+    private void buttonCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCadastrarActionPerformed
         //new CadastrarPaciente(true).setVisible( true );
     	new EmpresaCreate(true).setVisible( true );
         this.setVisible( false );
-    }//GEN-LAST:event_buttonCandidatosActionPerformed
+    }//GEN-LAST:event_buttonCadastrarActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void buttonPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPesquisarActionPerformed
         new EmpresaCreate(false).setVisible( true );
         this.setVisible( false );
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_buttonPesquisarActionPerformed
 
+    private void buttonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonVoltarActionPerformed
+        close();
+        this.dispose();
+    }//GEN-LAST:event_buttonVoltarActionPerformed
     
-    
+    int close(){
+        Main.showMainWindow();
+        return DISPOSE_ON_CLOSE; 
+    }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton buttonEmpresas;
-    private javax.swing.JButton buttonCandidatos;
-    //private javax.swing.JButton jButton3;
-    //private javax.swing.JButton jButton4;
-    //private javax.swing.JButton jButton5;
+    private javax.swing.JButton buttonVisualizar;
+    private javax.swing.JButton buttonCadastrar;
+    private javax.swing.JButton buttonPesquisar;
     private javax.swing.JButton buttonSair;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel title;
+    private javax.swing.JButton buttonVoltar;
     // End of variables declaration//GEN-END:variables
 }

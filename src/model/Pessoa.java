@@ -5,9 +5,9 @@ import java.sql.Date;
 public abstract class Pessoa {
 
 	private int id;
-	private int cpf;
+	private String cpf;
 	private String nome;
-	private Date dataNascimento;
+	private String dataNascimento;
 	//public int estadocivil
 	//grauinstrucao
 	//private String naturalidade;
@@ -15,8 +15,7 @@ public abstract class Pessoa {
 	public Pessoa() {
 	}
 	
-	public Pessoa(int id, int cpf, String nome, Date dataNascimento) {
-		this.id = id;
+	public Pessoa(String cpf, String nome, String dataNascimento) {
 		this.cpf = cpf;
 		this.nome = nome;
 		this.dataNascimento = dataNascimento;
@@ -31,11 +30,11 @@ public abstract class Pessoa {
 		this.id = id;
 	}
 	
-	public int getCpf() {
+	public String getCpf() {
 		return cpf;
 	}
 	
-	public void setCpf(int cpf) {
+	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
 	
@@ -47,11 +46,11 @@ public abstract class Pessoa {
 		this.nome = nome;
 	}
 	
-	public Date getDataNascimento() {
+	public String getDataNascimento() {
 		return dataNascimento;
 	}
 	
-	public void setDataNascimento(Date dataNascimento) {
+	public void setDataNascimento(String dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}	
 	

@@ -5,12 +5,12 @@ import dao.Connect;
 public class Main {
 
 	private static Connect bd;
-    //private static MainWindow window;
+    private static MainWindow window;
             
     public static void main(String[] args){
         bd = new Connect();
-        //window = new MainWindow();
-        //window.setVisible( true );
+        window = new MainWindow();
+        window.setVisible( true );
     }
     
     public static Connect getBD(){
@@ -18,7 +18,7 @@ public class Main {
     }
     
     public static void showMainWindow(){
-        //window.setVisible( true );
+        window.setVisible( true );
     }
 
 }

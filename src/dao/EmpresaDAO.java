@@ -126,7 +126,7 @@ public class EmpresaDAO extends GenericDAO {
 		
         try{
         	Statement st = Connect.c.createStatement();
-            String sql = "SELECT * FROM empresa WHERE razao_social LIKE '%" + razaoSoc + "%'";
+            String sql = "SELECT * FROM empresa WHERE LOWER(razao_social) LIKE '%" + razaoSoc.toLowerCase() + "%'";
             ResultSet rs = st.executeQuery( sql );
             
             while ( rs.next() ) {

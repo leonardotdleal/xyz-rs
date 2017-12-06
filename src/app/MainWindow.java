@@ -51,7 +51,7 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setText("Alterar Empresa");
+        jButton3.setText("Pesquisar Empresa");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);

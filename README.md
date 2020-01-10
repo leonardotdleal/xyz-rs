@@ -27,22 +27,3 @@ Instalações:
 Baixar repositório: 
 
 	git clone https://github.com/leonardotdleal/xyz-rs.git
-
-### Comandos git para uso em sala ###
-	
-Configurando username e email:
-
-	git config --global user.name "Leonardo"
-	git config --global user.email email@example.com
-	
-Gravando alterações de todos os arquivos modificados: 
-
-	git add -A
-
-Armazena os arquivos alterados em um commit: 
-
-	git commit -m "message"
-	
-Empurrando o commit para a branch master: 
-
-	git push origin master
